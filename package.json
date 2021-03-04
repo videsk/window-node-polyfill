@@ -1,6 +1,6 @@
 {
   "name": "@videsk/window-node-polyfill",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Polyfill of window in node js for testing purpose",
   "main": "index.js",
   "scripts": {

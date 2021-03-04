@@ -10,6 +10,12 @@ window is not defined
 
 ## How to use
 
+First install as dev dependency, **never use in production server**:
+
+```js
+npm i @videsk/window-node-polyfill -D
+```
+
 Only need add on teh top of the test file, like this:
 
 ```js
