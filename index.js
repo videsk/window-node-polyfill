@@ -58,4 +58,10 @@ window.location = {
     search: '',
 };
 
-window.top = window.location;
+window.top = {
+    location: window.location,
+};
+
+window.parent = {
+    location: window.location,
+}
