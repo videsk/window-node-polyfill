@@ -1,34 +1,6 @@
-// Polyfill window
-global.window = {};
-global.document = {};
+// Polyfills
 
-window.localStorage = {
-    store: {},
-    getItem: (key = '') => window.localStorage.store[key],
-    setItem: (key = '', value = '') => {
-        window.localStorage.store[key] = value;
-    },
-    removeItem: (key = '') => {
-        delete window.localStorage.store[key];
-    }
-};
-
-window.sessionStorage = {
-    store: {},
-    getItem: (key = '') => window.sessionStorage.store[key],
-    setItem: (key = '', value = '') => {
-        window.sessionStorage.store[key] = value;
-    },
-    removeItem: (key = '') => {
-        delete window.sessionStorage.store[key];
-    }
-};
-
-window.navigator = {
-    language: 'en',
-};
-
-window.document = {
+global.document = {
     createElement: () => ({
         addEventListener: () => {},
         style: {},
@@ -41,7 +13,46 @@ window.document = {
     },
 };
 
-window.location = {
+global.localStorage = {
+    store: {},
+    getItem: (key = '') => localStorage.store[key],
+    setItem: (key = '', value = '') => {
+        localStorage.store[key] = value;
+    },
+    removeItem: (key = '') => {
+        delete localStorage.store[key];
+    }
+};
+
+global.sessionStorage = {
+    store: {},
+    getItem: (key = '') => sessionStorage.store[key],
+    setItem: (key = '', value = '') => {
+        sessionStorage.store[key] = value;
+    },
+    removeItem: (key = '') => {
+        delete sessionStorage.store[key];
+    }
+};
+
+global.navigator = {
+    language: 'en',
+};
+
+global.document = {
+    createElement: () => ({
+        addEventListener: () => {},
+        style: {},
+        classList: { add: () => {}, remove: () => {} },
+        setAttribute: () => {},
+        remove: () => {},
+    }),
+    body: {
+        appendChild: () => {},
+    },
+};
+
+global.location = {
     ancestorOrigins: {},
     assign: () => {},
     reload: () => {},
@@ -58,10 +69,18 @@ window.location = {
     search: '',
 };
 
-window.top = {
-    location: window.location,
+global.top = {
+    location,
 };
 
-window.parent = {
-    location: window.location,
+global.parent = {
+    location,
 }
+
+global.window = {
+    localStorage,
+    sessionStorage,
+    navigator,
+    document,
+    localtion,
+};
