@@ -1,6 +1,8 @@
 # Window polyfill for NodeJS
 
-This library was designed to use in Node tesitng environment like mocha testing. If you need test code that use `window` but not DOM elements you maybe need install.
+Nodejs doesn't have `window` object (obviously, not?). So, when you want to test pure Javascript or Typescript code that have `window` dependencies like `localStorage` and many more that are only able on browsers, your tests will not works, because you will get the `XXXX is not defined` error.
+
+So, this library was designed to use in Node testing environment with mocha, chai, etc. where have browsers APIs dependencies. Some features of browsers was don't do what do you want like `document.createElement('div')`, but will returns you an object where you have access to properties and functions.
 
 If you don't use a `window` polyfill you will get an error like this:
 
@@ -25,10 +27,18 @@ require('@videsk/window-node-polyfill');
 
 Then you can access to the current properties:
 
-- localStorage
-- sessionStorage
+- `window`
+- `window.localStorage`
+- `window.sessionStorage`
+- `document`
+- `document.createElement`
+- `document.body`
+- `document.body.appendChild`
+- `window.location`
+- `window.top`
+- `window.parent`
 
-For both cases to access to them is with:
+## Storage
 
 ```js
 // window.localStorage or window.sessionStorage
@@ -36,6 +46,13 @@ window.localStorage.getItem('my-key');
 window.localStorage.setItem('my-key', 'my-value');
 window.localStorage.removeItem('my-key');
 ``` 
+
+## Document
+
+```js
+const element = document.createElement('div');
+typeof element // object
+```
 
 ## Contributions
 
