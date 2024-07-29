@@ -15,23 +15,33 @@ global.document = {
 
 global.localStorage = {
     store: {},
-    getItem: (key = '') => localStorage.store[key],
-    setItem: (key = '', value = '') => {
-        localStorage.store[key] = value;
+    getItem(key = '') {
+        return this.store[key];
     },
-    removeItem: (key = '') => {
-        delete localStorage.store[key];
+    setItem(key = '', value = '') {
+        this.store[key] = value;
+    },
+    removeItem(key = '') {
+        delete this.store[key];
+    },
+    clear() {
+        this.store = {};
     }
 };
 
 global.sessionStorage = {
     store: {},
-    getItem: (key = '') => sessionStorage.store[key],
-    setItem: (key = '', value = '') => {
-        sessionStorage.store[key] = value;
+    getItem(key = '') {
+        return this.store[key];
     },
-    removeItem: (key = '') => {
-        delete sessionStorage.store[key];
+    setItem(key = '', value = '') {
+        this.store[key] = value;
+    },
+    removeItem(key = '') {
+        delete this.store[key];
+    },
+    clear() {
+        this.store = {};
     }
 };
 
