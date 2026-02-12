@@ -92,5 +92,5 @@ global.window = {
     sessionStorage,
     navigator,
     document,
-    localtion,
+    location,
 };
